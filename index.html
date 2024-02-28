@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="inputText" placeholder="Enter text here"></textarea>
+    <button onclick="convert()">Convert</button>
+    <button onclick="clearText()">Clear</button>
+    <div id="output"></div>
+    <div style="text-align: center; margin-top: 20px;">App made by djalolovtk</div>
+
+    <script>
+        function convert() {
+            let inputText = document.getElementById('inputText').value.trim();
+            let output = document.getElementById('output');
+            output.innerHTML = '';
+
+            // Convert to Hex
+            let hex = 'Hex: ' + parseInt(inputText, 10).toString(16);
+
+            // Convert to Bin
+            let bin = 'Bin: ' + parseInt(inputText, 10).toString(2);
+
+            // Convert to Oct
+            let oct = 'Oct: ' + parseInt(inputText, 10).toString(8);
+
+            // Convert to ASCII
+            let ascii = 'ASCII: ';
+            for (let i = 0; i < inputText.length; i++) {
+                ascii += inputText.charCodeAt(i) + ' ';
+            }
+
+            // Reverse
+            let reverse = 'Reverse: ' + inputText.split('').reverse().join('');
+
+            // Upper case
+            let upperCase = 'Upper Case: ' + inputText.toUpperCase();
+
+            // Lower case
+            let lowerCase = 'Lower Case: ' + inputText.toLowerCase();
+
+            // Upside down
+            let upsideDown = 'Upside Down: ' + inputText.split('').reverse().join('');
+
+            // Superscript
+            let superscript = 'Superscript: ' + inputText.sup();
+
+            // Subscript
+            let subscript = 'Subscript: ' + inputText.sub();
+
+            // International morse code - not implemented
+
+            // Zalgo Mini, Normal, Big - not implemented
+
+            // Base64
+            let base64 = 'Base64: ' + btoa(inputText);
+
+            // URL
+            let url = 'URL: ' + encodeURIComponent(inputText);
+
+            // Random Case - not implemented
+
+            // Caesar Cipher - not implemented
+
+            // Atbash Cipher - not implemented
+
+            // ROT-13 - not implemented
+
+            // NATO - not implemented
+
+            // Unicode
+            let unicode = 'Unicode: ';
+            for (let i = 0; i < inputText.length; i++) {
+                unicode += inputText.charCodeAt(i).toString(16) + ' ';
+            }
+
+            // Wingding - not implemented
+
+            output.innerHTML = hex + '<br>' + bin + '<br>' + oct + '<br>' + ascii + '<br>' + reverse + '<br>' + upperCase + '<br>' + lowerCase + '<br>' + upsideDown + '<br>' + superscript + '<br>' + subscript + '<br>' + base64 + '<br>' + url + '<br>' + unicode;
+        }
+
+        function clearText() {
+            document.getElementById('inputText').value = '';
+            document.getElementById('output').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
